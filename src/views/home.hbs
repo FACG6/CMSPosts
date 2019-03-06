@@ -1,0 +1,54 @@
+<section class="posts">
+    {{#if auth}}
+    <div class="posts__nav">
+        <img class="posts__nav-image" alt="personal image" src={{image}}>
+        <span class="posts__nav-name">Hello {{name}}</span>
+    </div>
+    <div class="posts__form">
+        <form class="post__form post__form--post">
+            <input type="text" name="text" id="text" class=" post__form-input post__form--text text" placeholder="Enter Your Words">
+            <select class="post__form-select select">
+                <option value="0">Public</option>
+                <option value="1">Private</option>
+            </select>
+            <br>
+            <p class="error sign__form-error"></p>
+            <input type="submit" value="add" class="sign__form-send" id="send">
+        </form>
+    </div>
+    <div class="posts__container">
+        {{#each posts}}
+        <div class="posts__post">
+            <div class="posts__post-owner">
+                <img class="posts__post-owner-image" alt="personal image" src={{this.image}}>
+                <span class="posts__post-owner-name">{{this.first_name}} {{this.last_name}}</span>
+                <div class="posts__post-owner-editor">
+                    <button class="edit"><i class="far fa-edit"></i></button>
+                    <button class="delete"><i class="far fa-trash-alt"></i> </button>
+                </div>
+            </div>
+            <p class="posts__post-content" id={{this.posts_id}}>{{this.content}}</p>
+        </div>
+
+        {{/each}}
+    </div>
+    {{else}}
+    <div class="posts__container">
+        {{#each posts}}
+        <div class="posts__post">
+            <div class="posts__post-owner">
+                <img class="posts__post-owner-image" alt="personal image" src={{image}}>
+                <span class="posts__post-owner-name">{{this.first_name}} {{this.last_name}}</span>
+            </div>
+            <p class="posts__post-content">{{this.content}}</p>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
+</section>
+<div class="posts__delete">
+    <p><i class="far fa-trash-alt"></i> Are You Sure To Delete Post ? </p>
+    <button class="posts__delete-btn" id='cancle'>Cancel</button>
+    <button class="posts__delete-btn" id="ok">Delete</button>
+    <p class="error error_dialog"></p>
+</div>
