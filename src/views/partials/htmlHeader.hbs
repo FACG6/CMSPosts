@@ -1,0 +1,17 @@
+<header class="header">
+    <a href="/">
+        <img src="http://cline-company.com/wp-content/uploads/2012/08/social.png" alt="logo" class="header__img">
+    </a>
+    <h2 class="header__h2">Leave some words for everyone to read</h2>
+    <div class="header__link">
+
+        {{#if auth}}
+        <a href="/logout" class="header__link-sign">Log out</a>
+        {{else}}
+        <a href="/login" class="header__link-sign">Login</a>
+        <a href="/signUp" class="header__link-sign">Sign up</a>
+        {{/if}}
+
+    </div>
+
+</header>
