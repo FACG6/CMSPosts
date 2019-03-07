@@ -11,7 +11,7 @@ exports.post = (req, res, next) => {
       next();
     })
     .catch((error) => {
-      next(error);
+      res.status(500).send(JSON.stringify({ error: 'Internal Server Error' }));
     });
 };
 
@@ -20,7 +20,7 @@ exports.postUser = (req, res, next) => {
     .then(() => {
       next();
     })
-    .catch((error) => {
-      next(error);
+    .catch(() => {
+      res.status(500).send(JSON.stringify({ error: 'Internal Server Error' }));
     });
 };

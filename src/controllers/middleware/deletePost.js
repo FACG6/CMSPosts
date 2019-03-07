@@ -5,7 +5,7 @@ exports.deletePost = (req, res, next) => {
     .then(() => {
       next();
     })
-    .catch((error) => {
-      next(error);
+    .catch(() => {
+      res.status(500).send(JSON.stringify({ error: 'Internal Server Error' }));
     });
 };
