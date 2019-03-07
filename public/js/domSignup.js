@@ -45,7 +45,7 @@ send.addEventListener('click', (e) => {
     return '';
   }
   // check the pattern of image url
-  if (!(/^https?:\/\/([\w]||[-_.])+\.[a-z]{2,4}(\/||[\w-_])*\.(?:png|jpe?g||gif)$/.test(image))) {
+  if (!(/^https?:\/\/([\w]||[-_.])+\.[a-z]{2,4}(\/||[\w-_])*\.(png|jpe?g||gif)$/.test(image))) {
     error.textContent = 'Image URL match pattern like https://example.com/example/image.png';
     form.insertBefore(error, document.getElementById('password'));
     return '';
