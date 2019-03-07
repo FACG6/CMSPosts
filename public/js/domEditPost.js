@@ -11,6 +11,13 @@ const editCB = (event) => {
   edit.addEventListener('click', () => {
     if (errorEdit) errorEdit.remove();
     const data = { postId: content.id, content: content.textContent };
+    if(!data.content){
+      errorEdit = createElements('p', 'Please fill the field', postParent, 'error');
+      return ''; 
+    }else if(data.content.search(/<[^>]*script/) !== -1){
+      errorEdit = createElements('p', 'Please Don\'t Try To Hack My Application :(', postParent, 'error');
+      return '';
+    }
     fetching('/updatePost', 'PUT', data, (res) => {
       if (res.result) {
         content.removeAttribute('contenteditable');

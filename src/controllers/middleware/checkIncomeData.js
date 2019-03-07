@@ -57,8 +57,8 @@ exports.checkUpdate = (req, res, next) => {
   const { postId, content } = req.body;
   if (!postId.trim() || !content.trim()) {
     res.send(JSON.stringify({ error: 'Plese fill The field' }));
-  } else if (!(/^[0-9]+$/.test(postId)) || !(/^([\w]||[\s])+$/.test(content))) {
-    res.send(JSON.stringify({ error: 'Not Valid Pattern' }));
+  } else if (!(/^[0-9]+$/.test(postId)) || content.search(/<[^>]*script/) !== -1) {
+    res.send(JSON.stringify({ error: 'Please Don\'t Try To Hack My Application :(' }));
   } else {
     next();
   }
