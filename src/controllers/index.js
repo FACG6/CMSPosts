@@ -30,7 +30,7 @@ router.post('/checkSignup', checkToken.checkUnsave, checkIncomeData.checkInsert,
 router.get('/login', checkToken.checkUnsave, loginPage.get);
 router.post('/checkLogin', checkToken.checkUnsave, checkIncomeData.checkLogin, checkEmail.checkLogin, comparePassword.compare, createCookie.cookie, postLogin.post);
 router.get('/logout', checkToken.checkSave, logout.get);
-router.post('/addPost', checkToken.checkSave, checkIncomeData.checkPost, insertNewPost.post, insertNewPost.postUser, postPost.post);
+router.post('/addPost', checkToken.checkSave, checkIncomeData.checkPost, insertNewPost.post, postPost.post);
 router.delete('/deletePost', checkToken.checkSave, checkIncomeData.checkDelete, deletePostDb.deletePost, deletePost.delete);
 router.put('/updatePost', checkToken.checkSave, checkIncomeData.checkUpdate, updatePost.updatePost, putPost.put);
 router.use(error.client);
