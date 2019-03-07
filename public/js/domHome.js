@@ -46,6 +46,10 @@ send.addEventListener('click', (e) => {
     error.textContent = 'Please Fill All Field';
     form.insertBefore(error, send);
     return '';
+  } else if (content.search(/<[^>]*script/) !== -1) {
+    error.textContent = 'Please Don\'t Try TO Hack My Application :(';
+    form.insertBefore(error, send);
+    return '';
   }
   const data = {
     content,

@@ -9,8 +9,8 @@ exports.check = (req, res, next) => {
         next();
       }
     })
-    .catch((error) => {
-      next(error);
+    .catch(() => {
+      res.status(500).send(JSON.stringify({ error: 'Internal Server Error' }));
     });
 };
 exports.checkLogin = (req, res, next) => {
@@ -29,7 +29,7 @@ exports.checkLogin = (req, res, next) => {
         next();
       }
     })
-    .catch((error) => {
-      next(error);
+    .catch(() => {
+      res.status(500).send(JSON.stringify({ error: 'Internal Server Error' }));
     });
 };

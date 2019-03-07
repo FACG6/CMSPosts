@@ -9,6 +9,6 @@ exports.add = (req, res, next) => {
       next();
     })
     .catch((error) => {
-      next(error);
+      res.status(500).send(JSON.stringify({ error: 'Internal Server Error' }));
     });
 };

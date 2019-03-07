@@ -8,7 +8,7 @@ exports.checkInsert = (req, res, next) => {
   const imgUrlTrim = image.trim();
   if (!fName || !lName || !password || !emailTrim || !imgUrlTrim) {
     res.send(JSON.stringify({ error: 'Please Fill All Field' }));
-  } else if (!(/^[a-zA-Z]+$/.test(fName)) || !(/^[a-zA-Z]+$/.test(lName)) || !(/^[\w.-_%+]+@[\w.-]+\.[a-zA-Z]{2,4}$/.test(emailTrim)) || !(/^https?:\/\/([\w]||[-_.])+\.[a-z]{2,4}(\/||[\w-_])*\.(?:png|jpe?g||gif)$/.test(imgUrlTrim))) {
+  } else if (!(/^[a-zA-Z]+$/.test(fName)) || !(/^[a-zA-Z]+$/.test(lName)) || !(/^[\w.-_%+]+@[\w.-]+\.[a-zA-Z]{2,4}$/.test(emailTrim)) || !(/^https?:\/\/([\w]||[-_.])+\.[a-z]{2,4}(\/||[\w-_])*\.(png|jpe?g||gif)$/.test(imgUrlTrim))) {
     res.send(JSON.stringify({ error: 'Please Enter Valid Pattern' }));
   } else {
     next();
@@ -35,8 +35,8 @@ exports.checkPost = (req, res, next) => {
   } = req.body;
   if (!content || !privacy) {
     res.send(JSON.stringify({ error: 'Please Fill All Field' }));
-  } else if (!(/^([\w]||[\s])+$/.test(content)) || !(/^[0-1]{1}$/.test(privacy))) {
-    res.send(JSON.stringify({ error: 'Please Ensur you enter correct pattern' }));
+  } else if (content.search(/<[^>]*script/) !== -1 || !(/^[0-1]{1}$/.test(privacy))) {
+    res.send(JSON.stringify({ error: 'Please Don\'t Try To Hack My Application :(' }));
   } else {
     next();
   }
