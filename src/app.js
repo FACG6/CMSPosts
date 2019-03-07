@@ -11,7 +11,6 @@ const app = express();
 app.set('port', process.env.PORT || 3300);
 app.use(serveFav(path.join(__dirname, '..', 'public', 'post.ico')));
 app.use(express.static(path.join(__dirname, '..', 'public')));
-app.use(express.static(path.join(__dirname, '..', 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
