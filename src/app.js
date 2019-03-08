@@ -9,6 +9,7 @@ const controllers = require('./controllers/index');
 
 const app = express();
 app.set('port', process.env.PORT || 3300);
+app.disable('x-powered-by');
 app.use(serveFav(path.join(__dirname, '..', 'public', 'post.ico')));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.set('views', path.join(__dirname, 'views'));
