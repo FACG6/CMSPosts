@@ -1,6 +1,8 @@
 const tape = require('tape');
-
-tape('first test', (t) => {
-  t.equal(1, 1, 'done');
-  t.end();
+const supertest = require('supertest');
+const app = require('../src/app');
+const built = require('../src/database/db_built');
+tape('test', (test) => {
+  test.equal(1,1,'must equal');
+  test.end();
 });
