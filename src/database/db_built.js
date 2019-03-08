@@ -12,5 +12,4 @@ const dbBuilt = () => {
       console.log('database field to built');
     });
 };
-dbBuilt();
 module.exports = dbBuilt;
