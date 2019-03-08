@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test node ./test/testRouters.js | tap-spec",
-    "testQueries": "NODE_ENV=test node ./test/testQueries.js | tap-spec",
     "live": "NODE_ENV=dev nodemon ./src/index.js",
     "start": "NODE_ENV=pro node ./src/index.js"
   },
