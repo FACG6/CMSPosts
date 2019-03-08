@@ -2,18 +2,22 @@ const tape = require('tape');
 const supertest = require('supertest');
 const app = require('../src/app');
 const built = require('../src/database/db_built');
+tape('test', (test) => {
+  test.equal(1,1,'must equal');
+  test.end();
+});
 
 /* This tests not cover all routers just 4 router  */
-tape('Routers Tests', (test) => {
-  built().
-  then((res) => {
-    test.equal(1,1,'done')
-  })
-  .catch((error) => {
-    test.error(error);
-  })
-  test.end();
-})
+// tape('Routers Tests', (test) => {
+//   built().
+//   then((res) => {
+//     test.equal(1,1,'done')
+//   })
+//   .catch((error) => {
+//     test.error(error);
+//   })
+//   test.end();
+// })
 // test home page
 // tape('home page', test => {
 //   supertest(app)
