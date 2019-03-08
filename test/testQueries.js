@@ -6,6 +6,7 @@ const updatePost = require('./../src/database/queries/updatePost');
 /* This tests not cover all queries just 3 queries  */
 // test for insert user
 tape('Add New User already exist', (test) => {
+  built();
   const data = {
     firstName: 'test',
     lastName: 'test',
