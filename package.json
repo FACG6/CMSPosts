@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test node ./test/test.js | tap-spec & ./test/testQueries.js | tap-spec",
+    "test": "NODE_ENV=test node ./test/test.js | tap-spec",
     "testQuery": "NODE_ENV=test node ./test/testQueries.js | tap-spec",
     "live": "NODE_ENV=dev nodemon ./src/index.js",
     "start": "NODE_ENV=pro node ./src/index.js"
